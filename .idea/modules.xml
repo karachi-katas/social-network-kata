@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/social-network-kata/social-network-kata.iml" filepath="$PROJECT_DIR$/social-network-kata/social-network-kata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/social-network-kata.iml" filepath="$PROJECT_DIR$/.idea/social-network-kata.iml" />
     </modules>
   </component>
 </project>
