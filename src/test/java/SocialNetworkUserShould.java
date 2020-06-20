@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import domain.MockPost;
 import domain.Post;
+import domain.SocialNetwork;
 import domain.SocialNetworkUser;
 import java.sql.Timestamp;
 import java.util.List;
@@ -11,7 +12,20 @@ import org.junit.Test;
 
 public class SocialNetworkUserShould {
 
+  SocialNetwork socialNetwork;
   SocialNetworkUser userBob, userAlice;
+
+  @Before
+  public void setup()
+  {
+    this.socialNetwork = new SocialNetwork();
+    userAlice = socialNetwork.registerUser("Alice");
+    userBob = socialNetwork.registerUser("Bob");
+
+    initUser("Today is Saturday", userBob);
+    initUser("Today is Sunny", userAlice);
+  }
+
   @Test
   public void beAbleToPostOnTimeLine() {
 
@@ -21,10 +35,6 @@ public class SocialNetworkUserShould {
 
   @Test
   public void beAbleToViewTimeline() {
-
-    String message = "Today is Saturday";
-    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-    userBob.post(new MockPost(message, currentTime, currentTime));
     List<Post> timeline = userBob.getTimeline();
 
     assert timeline.size() == 1;
@@ -34,35 +44,17 @@ public class SocialNetworkUserShould {
   @Test
   public  void beAbleToViewSomeOneElseTimeline()
   {
-    SocialNetwork socialNetwork = new SocialNetwork();
-
-    userAlice = socialNetwork.registerUser("Alice");
-    userBob = socialNetwork.registerUser("Bob");
-
-
-    //bob message
-    String message = "Today is Saturday";
-    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-    userBob.post(new MockPost(message, currentTime, currentTime));
-    List<Post> timeline = userBob.getTimeline();
-
-    //allice message
-    String message = "Today is Saturday";
-    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-    userAlice.post(new MockPost(message, currentTime, currentTime));
-    List<Post> timeline = userAlice.getTimeline();
-
-
-
+    List<Post> timeline = userAlice.getTimeline("Bob");
+    Post firstPost = timeline.get(0);
+    assertEquals("Today is Saturday (0 minutes ago)", firstPost.toString());
 
   }
-  @Before
-  public void setup()
-  {
-    String userName=  "Alice";
-    userAlice = new SocialNetworkUser(userName);
-    userName=  "Bob";
-    userBob = new SocialNetworkUser(userName);
+
+  private void initUser(String message, SocialNetworkUser user) {
+    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+    user.post(new MockPost(message, currentTime, currentTime));
   }
+
+
 
 }
