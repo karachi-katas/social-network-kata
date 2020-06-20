@@ -1,5 +1,6 @@
 package domain;
 
+import exceptions.UserDoesNotExistException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class SocialNetworkUser {
     return timeline;
   }
 
-  public List<Post> getTimeline(String userName) {
+  public List<Post> getTimeline(String userName) throws UserDoesNotExistException {
     return socialNetwork.getTimeline(userName);
   }
 

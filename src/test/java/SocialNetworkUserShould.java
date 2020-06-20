@@ -4,6 +4,7 @@ import domain.MockPost;
 import domain.Post;
 import domain.SocialNetwork;
 import domain.SocialNetworkUser;
+import exceptions.UserDoesNotExistException;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -42,8 +43,7 @@ public class SocialNetworkUserShould {
     assertEquals("Today is Saturday (0 minutes ago)", firstPost.toString());
   }
   @Test
-  public  void beAbleToViewSomeOneElseTimeline()
-  {
+  public  void beAbleToViewSomeOneElseTimeline() throws UserDoesNotExistException {
     List<Post> timeline = userAlice.getTimeline("Bob");
     Post firstPost = timeline.get(0);
     assertEquals("Today is Saturday (0 minutes ago)", firstPost.toString());

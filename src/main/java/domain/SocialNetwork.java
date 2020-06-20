@@ -3,6 +3,7 @@ package domain;
 import domain.Post;
 import domain.SocialNetworkUser;
 
+import exceptions.UserDoesNotExistException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,10 @@ public class SocialNetwork {
     }
 
 
-    public List<Post> getTimeline(String user) {
+    public List<Post> getTimeline(String user) throws UserDoesNotExistException {
+        if (!users.containsKey(user)) {
+            throw new UserDoesNotExistException();
+        }
         return users.get(user).getTimeline();
     }
 }
