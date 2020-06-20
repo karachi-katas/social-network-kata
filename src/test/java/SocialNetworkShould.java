@@ -8,4 +8,6 @@ public class SocialNetworkShould {
         String userName=  "Alice";
         SocialNetworkUser user = new SocialNetworkUser(userName);
     }
+
+
 }
