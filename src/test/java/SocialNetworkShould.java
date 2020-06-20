@@ -29,7 +29,7 @@ public class SocialNetworkShould {
     }
 
     @Test
-    public void foooooo() throws UsernameMustNotBeEmpty {
+    public void readPostsOfAlice() throws UsernameMustNotBeEmpty {
         SocialNetwork socialNetwork = new SocialNetwork();
         socialNetwork.post("Alice","What a wonderfully sunny day");
         List<String> posts = socialNetwork.read("Alice", "Alice");
