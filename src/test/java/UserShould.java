@@ -11,6 +11,7 @@ public class UserShould {
         User user = new User (actualName) ;
         Assert.assertEquals(actualName , user.getName());
         Assert.assertEquals(0, user.getPosts().size());
+        Assert.assertEquals(0, user.getFollowing().size());
     }
 
     @Test
@@ -20,6 +21,18 @@ public class UserShould {
         user.publish(post);
         List<Post> userPosts = user.getPosts();
         Assert.assertEquals(post, userPosts.get(0));
+    }
+
+    @Test
+    public void beAbleToFollowOtherUsers() {
+        User alice = new User("Alice");
+        User bob   = new User("Bob");
+
+        bob.follow(alice);
+
+        List<User> following = bob.getFollowing();
+
+        Assert.assertEquals(alice, following.get(0));
     }
 }
 
