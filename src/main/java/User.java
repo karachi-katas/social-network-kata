@@ -4,7 +4,7 @@ import java.util.List;
 public class User {
 
     private String username;
-    private List timeline;
+    private List<TimelineMessage> timeline;
     private List<User> subscriptions;
 
     public User(String username) {
@@ -21,7 +21,7 @@ public class User {
         this.username = username;
     }
 
-    public List getTimeline() {
+    public List<TimelineMessage> getTimeline() {
         return timeline;
     }
 
@@ -37,11 +37,21 @@ public class User {
         this.subscriptions = subscriptions;
     }
 
-    public void postMessage(String message) {
-        this.timeline.add(message);
+    public void postMessage(String message, String username) {
+        this.timeline.add(new TimelineMessage(message,username));
     }
 
     public void addSubscription(User user) {
         this.subscriptions.add(user);
+    }
+
+    public String viewAggregatedList() {
+        StringBuilder aggregatedMessage = new StringBuilder();
+        for(User subbed: subscriptions) {
+            for(TimelineMessage message: subbed.getTimeline()) {
+                aggregatedMessage.append(message.toString()).append("\n");
+            }
+        }
+        return aggregatedMessage.toString();
     }
 }
