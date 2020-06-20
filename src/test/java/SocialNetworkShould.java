@@ -14,4 +14,13 @@ public class SocialNetworkShould {
         SocialNetwork socialNetwork = new SocialNetwork();
         socialNetwork.post("","What a wonderfully sunny day");
     }
+
+
+    @Test
+    public void unNamedTest() throws UsernameMustNotBeEmpty {
+        SocialNetwork socialNetwork = new SocialNetwork();
+        assert socialNetwork.userExists("Bob")==false;
+    }
+
+
 }
