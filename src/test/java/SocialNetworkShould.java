@@ -23,4 +23,13 @@ public class SocialNetworkShould {
     }
 
 
+    @Test
+    public void haveUser() throws UsernameMustNotBeEmpty {
+        SocialNetwork socialNetwork = new SocialNetwork();
+        assert socialNetwork.userExists("Charlie")==false;
+    }
+
+
+
 }
+
