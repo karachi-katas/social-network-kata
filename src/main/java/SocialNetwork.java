@@ -3,16 +3,16 @@ import java.util.List;
 
 public class SocialNetwork {
 
-    List<String> usernames =new ArrayList<>();
+    List<String> usernames = new ArrayList<>();
+    List<String> posts = new ArrayList<>();
 
     public void post(String username, String message) throws UsernameMustNotBeEmpty {
 
         if (username.equals("")) {
             throw new UsernameMustNotBeEmpty();
-
-
         }
         usernames.add(username);
+        posts.add(message);
     }
 
     public boolean userExists(String username) {
@@ -21,14 +21,10 @@ public class SocialNetwork {
             return false;
         }
 
-
-
         return true;
     }
 
     public List<String> read(String username, String postOf) {
-        List<String> posts = new ArrayList<>();
-        posts.add("What a wonderfully sunny day");
         return posts;
     }
 }

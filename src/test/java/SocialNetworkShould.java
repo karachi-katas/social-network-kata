@@ -37,5 +37,14 @@ public class SocialNetworkShould {
         assert posts.get(0) == "What a wonderfully sunny day";
     }
 
+    @Test
+    public void gooofofodo() throws UsernameMustNotBeEmpty {
+        SocialNetwork socialNetwork = new SocialNetwork();
+        socialNetwork.post("Alice","Hello");
+        List<String> posts = socialNetwork.read("Alice", "Alice");
+        assert posts.size() == 1;
+        assert posts.get(0) == "Hello";
+    }
+
 }
 
