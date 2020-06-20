@@ -1,7 +1,13 @@
 import java.util.ArrayList;
 
 public class User {
-	
+
+	private String username;
+
+	User(String username){
+		this.username = username;
+	}
+
 	private ArrayList<Message> timeLine = new ArrayList<Message>();
 
 	public ArrayList<Message> getTimeLine() {
