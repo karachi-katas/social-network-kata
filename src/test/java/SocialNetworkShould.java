@@ -38,7 +38,7 @@ public class SocialNetworkShould {
     }
 
     @Test
-    public void gooofofodo() throws UsernameMustNotBeEmpty {
+    public void readAnotherPostFromAlice() throws UsernameMustNotBeEmpty {
         SocialNetwork socialNetwork = new SocialNetwork();
         socialNetwork.post("Alice","Hello");
         List<String> posts = socialNetwork.read("Alice", "Alice");
@@ -46,5 +46,14 @@ public class SocialNetworkShould {
         assert posts.get(0) == "Hello";
     }
 
+    @Test
+    public void readOnlyAlicesPostsWhenAskedForAlicesPosts() throws UsernameMustNotBeEmpty {
+        SocialNetwork socialNetwork = new SocialNetwork();
+        socialNetwork.post("Alice","Post from Alice");
+        socialNetwork.post("Bob","Post from Bob");
+        List<String> posts = socialNetwork.read("Alice", "Alice");
+        assert posts.size() == 1;
+        assert posts.get(0) == "Post from Alice";
+    }
 }
 
