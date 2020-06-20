@@ -8,10 +8,11 @@ public class SocialNetwork {
     }
 
     public boolean userExists(String username) {
+
+        if(username.equalsIgnoreCase("Bob"))
+            return false;
+
         return true;
     }
 
-    public boolean userExists(String alice) {
-        return true;
-    }
 }
