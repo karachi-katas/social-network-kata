@@ -17,6 +17,7 @@ public class Post {
 
   @Override
   public String toString() {
-    return String.format("{%s}, {%s}", message, time);
+    long diff = System.currentTimeMillis() - time.getTime();
+    return String.format("%s (%s minutes ago)", message, diff / (60 * 1000));
   }
 }
