@@ -1,7 +1,10 @@
 public class SocialNetwork {
 
 
-    public void post(String alice, String what_a_wonderfully_sunny_day) {
+    public void post(String username, String message) throws UsernameMustNotBeEmpty {
+        if (username.equals("")) {
+            throw new UsernameMustNotBeEmpty();
+        }
     }
 
     public boolean userExists(String username) {
