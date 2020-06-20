@@ -1,6 +1,8 @@
 public class SocialNetwork {
 
-    public void post(User user){
+    public boolean post(User user,Message message){
+    	user.addMessage(message);
+    	return true;
 
     }
 }
