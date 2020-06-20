@@ -33,6 +33,18 @@ public class User {
         return following;
     }
 
+    public List<Post> getPostsOfFollowing() {
+        List<Post> posts = new ArrayList<>();
+
+        for (User followed : following) {
+            for (Post post : followed.getPosts()) {
+                posts.add(post);
+            }
+        }
+
+        return posts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,6 +58,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(name, posts);
     }
-
-
 }

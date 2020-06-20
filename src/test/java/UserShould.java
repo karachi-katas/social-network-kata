@@ -34,6 +34,22 @@ public class UserShould {
 
         Assert.assertEquals(alice, following.get(0));
     }
+
+    @Test
+    public void beAbleToViewPostsOfPeopleTheyAreFollowing() {
+        User alice = new User("Alice");
+        User bob   = new User("Bob");
+
+        Post post = new Post("Post content", new Date(1592650942000L));
+
+        bob.follow(alice);
+
+        alice.publish(post);
+
+        List<Post> posts = bob.getPostsOfFollowing();
+
+        Assert.assertEquals(post, posts.get(0));
+    }
 }
 
 
