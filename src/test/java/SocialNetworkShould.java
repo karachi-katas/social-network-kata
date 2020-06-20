@@ -1,3 +1,4 @@
+import java.util.List;
 import org.junit.Test;
 
 public class SocialNetworkShould {
@@ -27,7 +28,14 @@ public class SocialNetworkShould {
         assert socialNetwork.userExists("Charlie")==false;
     }
 
-
+    @Test
+    public void foooooo() throws UsernameMustNotBeEmpty {
+        SocialNetwork socialNetwork = new SocialNetwork();
+        socialNetwork.post("Alice","What a wonderfully sunny day");
+        List<String> posts = socialNetwork.read("Alice", "Alice");
+        assert posts.size() == 1;
+        assert posts.get(0) == "What a wonderfully sunny day";
+    }
 
 }
 

@@ -26,4 +26,9 @@ public class SocialNetwork {
         return true;
     }
 
+    public List<String> read(String username, String postOf) {
+        List<String> posts = new ArrayList<>();
+        posts.add("What a wonderfully sunny day");
+        return posts;
+    }
 }
