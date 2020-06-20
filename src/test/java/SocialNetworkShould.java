@@ -1,9 +1,11 @@
+import domain.SocialNetworkUser;
 import org.junit.Test;
 
 public class SocialNetworkShould {
 
     @Test
-    public void doSomething() {
-        assert true;
+    public void haveUsers() {
+        String userName=  "Alice";
+        SocialNetworkUser user = new SocialNetworkUser(userName);
     }
 }
