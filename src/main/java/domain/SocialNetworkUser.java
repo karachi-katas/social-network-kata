@@ -19,4 +19,5 @@ public class SocialNetworkUser {
   public List<Post> getTimeline() {
     return timeline;
   }
+  
 }
