@@ -14,10 +14,6 @@ public class User {
         return timeLine;
     }
 
-    public void setTimeLine(ArrayList<Message> timeLine) {
-        this.timeLine = timeLine;
-    }
-
     public void addMessage(Message message) {
         this.timeLine.add(message);
     }

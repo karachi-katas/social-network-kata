@@ -11,7 +11,6 @@ public class SocialNetworkShould {
 
     SocialNetwork socialNetwork;
 
-
     @Before
     public void setup() {
         socialNetwork = new SocialNetwork();
@@ -20,7 +19,6 @@ public class SocialNetworkShould {
 
     @Test
     public void postTest() {
-
         User user = new User("Alice");
         Message message = new Message("Hello");
         socialNetwork.post(user, message);
@@ -29,7 +27,6 @@ public class SocialNetworkShould {
 
     @Test
     public void allowViewTimeline() {
-
         User user = new User("Alice");
         setMockTimelineForUser(user);
 
@@ -40,7 +37,6 @@ public class SocialNetworkShould {
 
     @Test(expected = AssertionError.class)
     public void allowViewTimeline_ShouldFail() {
-
         User user = new User("Alice");
         setMockTimelineForUser(user);
 
@@ -51,7 +47,6 @@ public class SocialNetworkShould {
 
     @Test
     public void userCanFollow() {
-
         User follower = new User("Alice");
         User followee = new User("Bov");
         socialNetwork.follow(follower, followee);
@@ -82,11 +77,9 @@ public class SocialNetworkShould {
 
 
     private void setMockTimelineForUser(User user) {
-
         user.addMessage(new Message("Hi this is message 1."));
         user.addMessage(new Message("Hi this is message 2."));
         user.addMessage(new Message("Hi this is message 3."));
     }
-
 
 }
