@@ -4,6 +4,10 @@ public class SocialNetworkShould {
 
     @Test
     public void doSomething() {
-        assert true;
+        User user = new User();
+        SocialNetwork socialNetwork = new SocialNetwork();
+        socialNetwork.post(user);
     }
+
+
 }
