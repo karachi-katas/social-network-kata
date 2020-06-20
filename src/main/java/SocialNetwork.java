@@ -1,0 +1,6 @@
+public class SocialNetwork {
+
+
+    public void post(String alice, String what_a_wonderfully_sunny_day) {
+    }
+}
