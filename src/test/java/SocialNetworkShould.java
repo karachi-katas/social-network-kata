@@ -15,16 +15,14 @@ public class SocialNetworkShould {
         socialNetwork.post("","What a wonderfully sunny day");
     }
 
-
     @Test
-    public void unNamedTest() throws UsernameMustNotBeEmpty {
+    public void notHaveBobCreatedBecauseHeHasNotPosted() throws UsernameMustNotBeEmpty {
         SocialNetwork socialNetwork = new SocialNetwork();
         assert socialNetwork.userExists("Bob")==false;
     }
 
-
     @Test
-    public void haveUser() throws UsernameMustNotBeEmpty {
+    public void notHaveCharlieCreatedBecauseHeHasNotPosted() throws UsernameMustNotBeEmpty {
         SocialNetwork socialNetwork = new SocialNetwork();
         assert socialNetwork.userExists("Charlie")==false;
     }
